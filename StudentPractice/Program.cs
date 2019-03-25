@@ -113,9 +113,11 @@ namespace StudentPracticeLog
             var studentGreeting = (from s in students
                                    where s.Id == input
                                    select s).FirstOrDefault();
+            //check for valid Id
             if (studentGreeting == null)
             {
                 Console.WriteLine("Student not found.");
+                //Create loop to return to input
 
             }
 
@@ -212,7 +214,8 @@ namespace StudentPracticeLog
                     //Record weekly total to PracticeLog for the week. 
 
                     // Display total minutes exercised to the screen 
-                    Console.WriteLine("You've practiced " + weeklyTotal + " minutes this week. Press return to exit.");
+                    Console.WriteLine("You've practiced " + weeklyTotal
+                        + " minutes this week. Press enter to exit.");
                     Console.ReadLine();
                     keepGoing = false;
 
