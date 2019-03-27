@@ -105,11 +105,14 @@ namespace StudentPracticeLog
             {
  
                 Console.WriteLine(string.Format("Hello " +
-                    studentGreeting.Name + "! Lat week you practiced " +
-                    studentGreeting.TotalMinutes + " minutes. Let's start adding up your practice for the week!"));
+                    studentGreeting.Name 
+                    + "! Lat week you practiced " +
+                    studentGreeting.TotalMinutes
+                    + " minutes. Let's start adding up your practice for the week!"));
 
                 // Prompt user for minutes practiced on each day
-                string[] dayOfTheWeek = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+                string[] dayOfTheWeek = new string[] 
+                { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
                 int minutes = 0;
                 int weeklyTotal = 0;
                 bool keepGoing = true;
@@ -117,7 +120,9 @@ namespace StudentPracticeLog
                 {
                     for (int i = 0; i < dayOfTheWeek.Length; i++)
                     {
-                        Console.WriteLine(string.Format("Enter how many minutes you practiced on " + dayOfTheWeek[i] + " ?"));
+                        Console.WriteLine(string.Format("Enter how many minutes you practiced on " 
+                            + dayOfTheWeek[i]
+                            + " ?"));
                         string entry = Console.ReadLine();
                         //create exit from weekly log
                         if (entry == "q")
@@ -135,7 +140,9 @@ namespace StudentPracticeLog
 
                             if (minutes < 0)
                             {
-                                Console.WriteLine(minutes + " is not an acceptable value. Pleas enter the number of minutes you practiced.");
+                                Console.WriteLine(minutes 
+                                    + " is not an acceptable value. " +
+                                    "Pleas enter the number of minutes you practiced.");
                                 continue;
                                 //need to return to same day
                             }
@@ -174,7 +181,8 @@ namespace StudentPracticeLog
 
                         if (studentGreeting.Id == input)
                         {
-                            WriteToJsonfile<List<Student>>("C:\\StudentName.Json", students);
+                            WriteToJsonfile<List<Student>>
+                            ("C://StudentName.Json", students);
                         }
                    
                     // Display total minutes paracticed to the screen 
