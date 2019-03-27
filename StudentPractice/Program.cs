@@ -69,29 +69,32 @@ namespace StudentPracticeLog
             // initialize array of objects in default constructor to generate sample data
             //var students = new List<Student>
             //{
-            //    new Student { Id = 101, Name = "Adam",LastName="Trask", TotalMinutes=0},
-            //    new Student { Id = 102, Name = "Boden",LastName="Pough", TotalMinutes=0},
-            //    new Student { Id = 103, Name = "Sierra", LastName = "MidCalf", TotalMinutes=0},
-            //    new Student {Id = 104, Name= "Luke", LastName="Perry", TotalMinutes=0},
-            //    new Student{Id=105, Name="Allie", LastName="Bopper", TotalMinutes=0}
+            //    new Student { Id = 101, Name = "Adam",LastName="Trask" },
+            //    new Student { Id = 102, Name = "Boden",LastName="Pough"},
+            //    new Student { Id = 103, Name = "Sierra", LastName = "MidCalf"},
+            //    new Student {Id = 104, Name= "Luke", LastName="Perry"},
+            //    new Student{Id=105, Name="Allie", LastName="Bopper"}
             //};
-
-
-
             //WriteToJsonfile<List<Student>>("C:\\StudentName.Json", students, false);
 
-
-
-
-
-
-
+            //Read list from jason file
             var students = ReadFromJsonFile<Student>("C:\\StudentName.Json");
-            foreach (var student in students)
-            {
-                student.Print();
 
-            }
+
+  
+
+
+
+
+
+
+
+            //var students = ReadFromJsonFile<Student>("C:\\StudentName.Json");
+            //foreach (var student in students)
+            //{
+            //    student.Print();
+
+            //}
 
 
 
@@ -129,29 +132,8 @@ namespace StudentPracticeLog
                     studentGreeting.TotalMinutes + " minutes. Let's start adding up your practice for the week!"));
 
 
-
-                //Console.WriteLine(studentGreeting);
-                //Console.ReadLine();
-
-
-                //var input =Console.ReadLine();
-                //int.Parse(input);
-
                 //if(input=students.First().Id)
                 //{ Console.WriteLine(string.Format("Hello "+ students.First().Name+"! Let's start adding up your practice for the week!")};
-
-
-
-
-                //var StudentId = Console.ReadLine();
-                //ReadFromJsonFile<List<Student>>("C:\\StudentName.Json");
-
-
-
-
-
-
-
 
                 // Prompt user for minutes practiced on each day
                 string[] dayOfTheWeek = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
@@ -172,6 +154,7 @@ namespace StudentPracticeLog
                         }
                         else
                         {
+
 
                             minutes = int.Parse(entry);
 
@@ -208,31 +191,44 @@ namespace StudentPracticeLog
                         }
                         // Add minutes practice to total
                         weeklyTotal = weeklyTotal + minutes;
+                        studentGreeting.TotalMinutes = weeklyTotal;
 
                     }
 
                     //Record weekly total to PracticeLog for the week. 
 
+
+                    //loop through Json to find matching student and overwrite TotalMinutes
+                    //foreach (var student in students)
+                    //{
+                        if (studentGreeting.Id == input)
+                        {
+                            WriteToJsonfile<List<Student>>("C:\\StudentName.Json", students);
+                        }
+                    //};
+
+
+
                     // Display total minutes exercised to the screen 
                     Console.WriteLine("You've practiced " + weeklyTotal
                         + " minutes this week. Press enter to exit.");
-                    Console.ReadLine();
-                    keepGoing = false;
+                        Console.ReadLine();
+                        keepGoing = false;
 
+                    }
                 }
+
+                // Repeat until user finishes or quits
+                Console.WriteLine("Goodbye");
+                Console.ReadLine();
+
+                //write weeklyTotal to StudentName.Json
+
             }
 
-            // Repeat until user finishes or quits
-            Console.WriteLine("Goodbye");
-            Console.ReadLine();
-
-            //write weeklyTotal to StudentName.Json
 
         }
-
-
     }
-}
 
 
 
