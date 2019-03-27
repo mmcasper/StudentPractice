@@ -80,7 +80,7 @@ namespace StudentPracticeLog
 
           
             //Read student list from jason file
-            var students = ReadFromJsonFile<Student>("C:\\StudentName.Json");
+            var students = ReadFromJsonFile<Student>("..\\..\\StudentName.Json");
 
 
 
@@ -182,7 +182,7 @@ namespace StudentPracticeLog
                         if (studentGreeting.Id == input)
                         {
                             WriteToJsonfile<List<Student>>
-                            ("C://StudentName.Json", students);
+                            ("..\\..\\StudentName.Json", students);
                         }
                    
                     // Display total minutes paracticed to the screen 
